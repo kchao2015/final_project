@@ -1,0 +1,28 @@
+Item:
+  name: string
+  category: string
+  season: string
+
+City:
+  name: string
+  country_id: integer
+
+Country:
+  name: string
+
+Trip:
+  name: string
+  user_id: integer
+  city_id: integer
+  duration: integer
+  season: string
+
+Pack:
+  item_id: integer
+  trip_id: integer
+  quantity: integer
+
+User:
+  name: string
+  email: string
+  password: string
