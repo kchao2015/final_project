@@ -6,6 +6,8 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find_by(id: params["id"])
+    @user = User.find_by(id: @trip.user_id)
+    @city = City.find_by(id: @trip.city_id)
   end
 
   def new
