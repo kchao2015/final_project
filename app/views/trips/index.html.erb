@@ -1,0 +1,11 @@
+<h1>Trips!</h1>
+
+<p><a href="trips/new" class="btn btn-primary">New Trip</a></p>
+
+<table class="table">
+  <% @trips.each do |trip| %>
+    <tr>
+    <td><a href="trips/<%= trip.id %>"><%= trip.name %></a></td>
+    </tr>
+  <% end %>
+</table>
