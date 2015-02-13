@@ -12,8 +12,7 @@ Country:
 
 Trip:
   name: string
-  user_id: integer
-  city_id: integer
+  destination: string
   duration: integer
   season: string
 

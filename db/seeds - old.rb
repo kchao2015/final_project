@@ -49,22 +49,13 @@ jeff = User.create(name: "jeff", email: "jeff@gmail.com", password: "zxcv")
 
 # Create the Trips
 puts "Creating trips..."
-i_love_sf = Trip.create(name: "I love sf", destination: "San Francisco", duration: "10", season:"spring")
-nyc = Trip.create(name: "Nyc", destination: "New York City", duration: "10", season:"spring")
-paris_with_love = Trip.create(name: "Paris with love", destination: "Paris", duration: "10", season:"fall")
-barcelona_finally = Trip.create(name: "Barcelona finally", destination: "Barcelona", duration: "10", season:"winter")
-sin_city = Trip.create(name: "Sin city", destination: "Las Vegas", duration: "10", season:"summer")
-
-# Create the trip/city location pairings
-puts "Creating Locations..."
-Location.create(trip_id: i_love_sf.id, city_id: san_francisco.id)
-Location.create(trip_id: nyc.id, city_id: new_york_city.id)
-Location.create(trip_id: paris_with_love.id, city_id: paris.id)
-Location.create(trip_id: barcelona_finally.id, city_id: barcelona.id)
-Location.create(trip_id: sin_city.id, city_id: las_vegas.id)
+i_love_sf = Trip.create(name: "I love sf", user_id: kevin.id, city_id: san_francisco.id, duration: "10", season:"spring")
+nyc = Trip.create(name: "Nyc", user_id: kevin.id, city_id: new_york_city.id, duration: "10", season:"spring")
+paris_with_love = Trip.create(name: "Paris with love", user_id: lucy.id, city_id: paris.id, duration: "10", season:"fall")
+barcelona_finally = Trip.create(name: "Barcelona finally", user_id: lucy.id, city_id: barcelona.id, duration: "10", season:"winter")
+sin_city = Trip.create(name: "Sin city", user_id: khorshid.id, city_id: las_vegas.id, duration: "10", season:"summer")
 
 # Create the packing items for i_love_sf
-puts "Creating Packs..."
 Pack.create(item_id: dress_shirt.id, trip_id: i_love_sf.id, quantity: "10")
 Pack.create(item_id: toothbrush.id, trip_id: i_love_sf.id, quantity: "1")
 Pack.create(item_id: deodorant.id, trip_id: i_love_sf.id, quantity: "1")
