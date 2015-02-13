@@ -1,11 +1,18 @@
-<h1>Trips!</h1>
-
-<p><a href="trips/new" class="btn btn-primary">New Trip</a></p>
+<h3 class="page header">
+  Trips!
+  <span class="pull right">
+    <%= link_to "New Trip", new_trip_path, class: 'btn btn-sm btn-success' %>
+  </span>
+</h3>
 
 <table class="table">
   <% @trips.each do |trip| %>
     <tr>
-    <td><a href="trips/<%= trip.id %>"><%= trip.name %></a></td>
+    <td>
+      <%= trip.name %> 
+      <%= link_to "Edit", edit_trip_path(trip) %>
+      <%= link_to "Delete", trip_path(trip), method: :delete, data: { confirm: 'Are you really sure?' } %>
+    </td>
     </tr>
   <% end %>
 </table>

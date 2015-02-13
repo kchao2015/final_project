@@ -17,6 +17,10 @@ Trip:
   duration: integer
   season: string
 
+Location:
+  trip_id: integer
+  city_id: integer
+
 Pack:
   item_id: integer
   trip_id: integer

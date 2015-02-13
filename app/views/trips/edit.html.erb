@@ -1,0 +1,11 @@
+<%= form_for @trip do |form| %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %><br />
+    <%= form.label :duration %> <b>(Days)</b>
+    <%= form.text_field :duration, class: "form-control" %><br />
+    <%= form.label :season %>
+    <%= form.text_field :season, class: "form-control" %><br />
+  </div>
+  <%= form.button 'Update Trip', class: "btn btn-success" %>
+<% end %>
