@@ -16,7 +16,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip_params = params.require(:trip).permit(:name, :duration, :season)
+    trip_params = params.require(:trip).permit(:name, :destination, :duration, :season)
     Trip.create(trip_params)
     redirect_to trips_path
   end
@@ -26,7 +26,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip_params = params.require(:trip).permit(:name, :duration, :season)
+    trip_params = params.require(:trip).permit(:name, :destination, :duration, :season)
     @trip = Trip.find_by(id: params["id"])
     @trip.update(trip_params)
     redirect_to trips_path
