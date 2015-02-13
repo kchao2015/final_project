@@ -9,7 +9,7 @@
   <% @trips.each do |trip| %>
     <tr>
     <td>
-      <%= link_to trip.name, trip %> 
+      <%= link_to trip.name, trip %> | 
       <%= link_to "Edit", edit_trip_path(trip) %>
       <%= link_to "Delete", trip_path(trip), method: :delete, data: { confirm: 'Are you really sure?' } %>
     </td>
