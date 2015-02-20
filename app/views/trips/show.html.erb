@@ -1,7 +1,7 @@
 <h1><%= @trip.name %></h1>
 
-<p>Destination: <%= @trip.destination %></p>
+<p>Destination: <%= @trip.city.try(:name) %></p>
 
 <p>Duration: <%= @trip.duration %> Days</p>
 
-<p>Season: <%= @trip.season %></p>
+<p>Season: <%= @trip.season.try(:name) %></p>

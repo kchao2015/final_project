@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "categories", force: true do |t|
+    t.string "name"
+  end
+
   create_table "cities", force: true do |t|
     t.string  "name"
     t.integer "country_id"
@@ -25,10 +29,13 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "items", force: true do |t|
-    t.string "name"
-    t.string "category"
-    t.string "season"
+    t.string  "name"
+    t.integer "category_id"
+    t.integer "season_id"
   end
+
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["season_id"], name: "index_items_on_season_id"
 
   create_table "locations", force: true do |t|
     t.integer "trip_id"
@@ -47,12 +54,19 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "packs", ["item_id"], name: "index_packs_on_item_id"
   add_index "packs", ["trip_id"], name: "index_packs_on_trip_id"
 
+  create_table "seasons", force: true do |t|
+    t.string "name"
+  end
+
   create_table "trips", force: true do |t|
     t.string  "name"
     t.integer "duration"
-    t.string  "season"
-    t.string  "destination"
+    t.integer "city_id"
+    t.integer "season_id"
   end
+
+  add_index "trips", ["city_id"], name: "index_trips_on_city_id"
+  add_index "trips", ["season_id"], name: "index_trips_on_season_id"
 
   create_table "users", force: true do |t|
     t.string "name"

@@ -15,13 +15,30 @@ Trip.delete_all
 Pack.delete_all
 User.delete_all
 
+# Create the seasons
+puts "Creating seasons..."
+spring = Season.create(name: "Spring")
+summer = Season.create(name: "Summer")
+fall = Season.create(name: "Fall")
+winter = Season.create(name: "Winter")
+all = Season.create(name: "All")
+
+# Create the categories
+puts "Creating categories..."
+clothing = Category.create(name: "Clothing")
+toiletries = Category.create(name: "Toiletries")
+accessories = Category.create(name: "Accessories")
+electronics = Category.create(name: "Electronics")
+documents = Category.create(name: "Documents")
+food = Category.create(name: "Food")
+
 # Create the Items
 puts "Creating items..."
-casual_shirt = Item.create(name: "Casual shirt", category: "Clothes", season: "all")
-dress_shirt = Item.create(name: "Dress shirt", category: "Clothes", season: "all")
-hat = Item.create(name: "Hat", category: "Accessories", season: "summer")
-toothbrush = Item.create(name: "Toothbrush", category: "Toiletries", season: "all")
-deodorant = Item.create(name: "Deodorant", category: "Toiletries", season: "all")
+casual_shirt = Item.create(name: "Casual shirt", category_id: clothing.id, season_id: all.id)
+dress_shirt = Item.create(name: "Dress shirt", category_id: clothing.id, season_id: all.id)
+hat = Item.create(name: "Hat", category_id: accessories.id, season_id: summer.id)
+toothbrush = Item.create(name: "Toothbrush", category_id: toiletries.id, season_id: all.id)
+deodorant = Item.create(name: "Deodorant", category_id: toiletries.id, season_id: all.id)
 
 # Create the Countries
 puts "Creating countries..."
@@ -49,11 +66,11 @@ jeff = User.create(name: "jeff", email: "jeff@gmail.com", password: "zxcv")
 
 # Create the Trips
 puts "Creating trips..."
-i_love_sf = Trip.create(name: "I love sf", destination: "San Francisco", duration: "10", season:"spring")
-nyc = Trip.create(name: "Nyc", destination: "New York City", duration: "10", season:"spring")
-paris_with_love = Trip.create(name: "Paris with love", destination: "Paris", duration: "10", season:"fall")
-barcelona_finally = Trip.create(name: "Barcelona finally", destination: "Barcelona", duration: "10", season:"winter")
-sin_city = Trip.create(name: "Sin city", destination: "Las Vegas", duration: "10", season:"summer")
+i_love_sf = Trip.create(name: "I love sf", city_id: san_francisco.id, duration: "10", season_id: spring.id )
+nyc = Trip.create(name: "Nyc", city_id: new_york_city.id, duration: "10", season_id: spring.id )
+paris_with_love = Trip.create(name: "Paris with love", city_id: paris.id, duration: "10", season_id: fall.id )
+barcelona_finally = Trip.create(name: "Barcelona finally", city_id: barcelona.id, duration: "10", season_id: winter.id )
+sin_city = Trip.create(name: "Sin city", city_id: las_vegas.id, duration: "10", season_id: summer.id )
 
 # Create the trip/city location pairings
 puts "Creating Locations..."

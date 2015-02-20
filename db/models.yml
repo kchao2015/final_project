@@ -1,7 +1,7 @@
 Item:
   name: string
-  category: string
-  season: string
+  category_id: integer
+  season_id: integer
 
 City:
   name: string
@@ -12,9 +12,15 @@ Country:
 
 Trip:
   name: string
-  destination: string
+  city_id: integer
   duration: integer
-  season: string
+  season_id: integer
+
+Season:
+  name: string
+
+Category:
+  name: string
 
 Location:
   trip_id: integer
