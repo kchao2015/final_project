@@ -1,11 +1,19 @@
 <%= form_for @trip do |form| %>
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %><br />
+    <%= form.text_field :name, class: "form-control", placeholder: "Update the name for your trip" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :city_id %>
+    <%= form.collection_select :city_id, City.order(:name), :id, :name, {},{class: "form-control"} %>
+  </div>
+  <div class="form-group">
     <%= form.label :duration %> <b>(Days)</b>
-    <%= form.text_field :duration, class: "form-control" %><br />
-    <%= form.label :season %>
-    <%= form.text_field :season, class: "form-control" %><br />
+    <%= form.text_field :duration, class: "form-control", placeholder: "Update your trip duration in days" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :season_id %>
+    <%= form.collection_select :season_id, Season.order(:name), :id, :name, {},{class: "form-control"} %>
   </div>
   <%= form.button 'Update Trip', class: "btn btn-success" %>
 <% end %>
