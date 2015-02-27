@@ -17,8 +17,12 @@ class TripsController < ApplicationController
 
   def create
     trip_params = params.require(:trip).permit(:name, :city_id, :duration, :season_id)
-    Trip.create(trip_params)
-    redirect_to trips_path
+    @trip = Trip.create(trip_params)
+    if @trip.valid?
+      redirect_to trips_path
+    else
+      render text: "FAIL"
+    end
   end
 
   def edit
