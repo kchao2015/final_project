@@ -63,15 +63,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "duration"
     t.integer "city_id"
     t.integer "season_id"
+    t.integer "user_id"
   end
 
   add_index "trips", ["city_id"], name: "index_trips_on_city_id"
   add_index "trips", ["season_id"], name: "index_trips_on_season_id"
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string  "name"
+    t.string  "email"
+    t.string  "password_digest"
+    t.boolean "admin",           default: false
   end
 
 end

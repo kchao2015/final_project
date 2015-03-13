@@ -15,6 +15,7 @@ Trip:
   city_id: integer
   duration: integer
   season_id: integer
+  user_id: integer
 
 Season:
   name: string
@@ -32,6 +33,7 @@ Pack:
   quantity: integer
 
 User:
-  name: string
   email: string
-  password: string
+  password_digest: string
+  name: string
+  admin: boolean

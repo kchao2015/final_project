@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def show
@@ -17,8 +17,10 @@ class TripsController < ApplicationController
 
   def create
     trip_params = params.require(:trip).permit(:name, :city_id, :duration, :season_id)
-    @trip = Trip.create(trip_params)
-    if @trip.valid?
+    #@trip = Trip.create(trip_params)
+    @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    if @trip.save
       redirect_to trips_path
     else
       render text: "FAIL"
@@ -30,7 +32,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip_params = params.require(:trip).permit(:name, :city_id, :duration, :season_id)
+    trip_params = params.require(:trip).permit(:name, :city_id, :duration, :season_id, :user_id)
     @trip = Trip.find_by(id: params["id"])
     @trip.update(trip_params)
     redirect_to trips_path
