@@ -16,7 +16,6 @@ Pack.delete_all
 User.delete_all
 Season.delete_all
 Category.delete_all
-Location.delete_all
 
 # Create the seasons
 puts "Creating seasons..."
@@ -43,6 +42,16 @@ dress_shirt = Item.create(name: "Dress shirt", category_id: clothing.id, season_
 hat = Item.create(name: "Hat", category_id: accessories.id, season_id: summer.id)
 toothbrush = Item.create(name: "Toothbrush", category_id: toiletries.id, season_id: all.id)
 deodorant = Item.create(name: "Deodorant", category_id: toiletries.id, season_id: all.id)
+charger = Item.create(name: "Charger", category_id: electronics.id, season_id: all.id)
+jeans = Item.create(name: "Jeans", category_id: clothing.id, season_id: all.id)
+toothpaste = Item.create(name: "Toothpaste", category_id: toiletries.id, season_id: all.id)
+facewash = Item.create(name: "Facewash", category_id: toiletries.id, season_id: all.id)
+contacts = Item.create(name: "Contacts", category_id: toiletries.id, season_id: all.id)
+passport = Item.create(name: "Passport", category_id: documents.id, season_id: all.id)
+dress_shoes = Item.create(name: "Dress shoes", category_id: shoes.id, season_id: all.id)
+boots = Item.create(name: "Boots", category_id: shoes.id, season_id: winter.id)
+clif_bar = Item.create(name: "Clif Bar", category_id: food.id, season_id: all.id)
+laptop = Item.create(name: "Laptop", category_id: electronics.id, season_id: all.id)
 
 # Create the Countries
 puts "Creating countries..."
@@ -76,18 +85,16 @@ paris_with_love = Trip.create(name: "Paris with love", city_id: paris.id, durati
 barcelona_finally = Trip.create(name: "Barcelona finally", city_id: barcelona.id, duration: "10", season_id: winter.id, user_id: kevin.id )
 sin_city = Trip.create(name: "Sin city", city_id: las_vegas.id, duration: "10", season_id: summer.id, user_id: lucy.id )
 
-# Create the trip/city location pairings
-puts "Creating Locations..."
-Location.create(trip_id: i_love_sf.id, city_id: san_francisco.id)
-Location.create(trip_id: nyc.id, city_id: new_york_city.id)
-Location.create(trip_id: paris_with_love.id, city_id: paris.id)
-Location.create(trip_id: barcelona_finally.id, city_id: barcelona.id)
-Location.create(trip_id: sin_city.id, city_id: las_vegas.id)
-
 # Create the packing items for i_love_sf
 puts "Creating Packs..."
-Pack.create(item_id: dress_shirt.id, trip_id: i_love_sf.id, quantity: "10")
+Pack.create(item_id: dress_shirt.id, trip_id: i_love_sf.id, quantity: "5")
 Pack.create(item_id: toothbrush.id, trip_id: i_love_sf.id, quantity: "1")
 Pack.create(item_id: deodorant.id, trip_id: i_love_sf.id, quantity: "1")
+Pack.create(item_id: jeans.id, trip_id: i_love_sf.id, quantity: "5")
+Pack.create(item_id: laptop.id, trip_id: i_love_sf.id, quantity: "1")
+Pack.create(item_id: charger.id, trip_id: i_love_sf.id, quantity: "2")
+Pack.create(item_id: clif_bar.id, trip_id: i_love_sf.id, quantity: "10")
+Pack.create(item_id: facewash.id, trip_id: i_love_sf.id, quantity: "1")
+Pack.create(item_id: toothpaste.id, trip_id: i_love_sf.id, quantity: "1")
 
 puts "There are now #{Item.count} items, #{City.count} cities, and #{Trip.count} trips in the database."

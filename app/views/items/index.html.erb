@@ -1,0 +1,19 @@
+<h3 class="page header">
+  Available Items!
+  <span class="pull right">
+    <%= link_to "New Item", new_item_path, class: 'btn btn-sm btn-success' %>
+    <%= link_to "Back to Trips", trips_path, class: 'btn btn-sm btn-primary' %> 
+  </span>
+</h3>
+
+<table class="table">
+  <% @items.each do |item| %>
+    <tr>
+    <td>
+      <%= link_to item.name, item %> | 
+      <%= link_to "Edit", edit_item_path(item) %>
+      <%= link_to "Delete", item_path(item), method: :delete, data: { confirm: 'Are you really sure?' } %>
+    </td>
+    </tr>
+  <% end %>
+</table>

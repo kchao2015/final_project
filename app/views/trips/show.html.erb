@@ -1,7 +1,30 @@
-<h1><%= @trip.name %></h1>
+<h1 class="title"><%= @trip.name %></h1>
 
-<p>Destination: <%= @trip.city.try(:name) %></p>
+<div class="row">
+  <div class="col-md-3">
+    <table class="table table-condensed table-bordered">
+      <tr><td><b>Destination:</b> <%= @trip.city.try(:name) %></td></tr>
+      <tr><td><b>Duration:</b> <%= @trip.duration %> Days</td></tr>
+      <tr><td><b>Season:</b> <%= @trip.season.try(:name) %></td></tr>
+    </table>
+  </div>
+  <div class="col-md-9">
+    <h2>Packing List</h2>
+    <table class="table table-condensed table-bordered table-striped">
+      <col width="150">
+      <col width="80">
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+      </tr>
+      <% @trip.packs.each do |pack| %>
+        <tr>
+          <td><%= pack.item.name %></td>
+          <td><%= pack.quantity %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Add Item", new_trip_pack_path(@trip), class: 'btn btn-success' %>
+  </div>
+</div>
 
-<p>Duration: <%= @trip.duration %> Days</p>
-
-<p>Season: <%= @trip.season.try(:name) %></p>

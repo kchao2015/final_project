@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :trips
+  resources :trips do
+    resources :packs
+  end
+  resources :items
   resources :cities
   resources :users
   resources :sessions

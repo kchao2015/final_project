@@ -1,12 +1,13 @@
-<h3 class="page header">
-  Trips!
+<h3 class="page header title">
+  My Trips!
   <span class="pull right">
     <%= link_to "New Trip", new_trip_path, class: 'btn btn-sm btn-success' %>
-    <%= link_to "New Destination", new_city_path, class: 'btn btn-sm btn-success' %>
+    <%= link_to "New Destination", new_city_path, class: 'btn btn-sm btn-primary' %>
+    <%= link_to "New Item", new_item_path, class: 'btn btn-sm btn-info' %>
   </span>
 </h3>
-
-<table class="table">
+<br>
+<table class="table table-bordered table-striped table-condensed">
   <% @trips.each do |trip| %>
     <tr>
     <td>

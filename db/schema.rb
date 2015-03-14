@@ -37,14 +37,6 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "items", ["category_id"], name: "index_items_on_category_id"
   add_index "items", ["season_id"], name: "index_items_on_season_id"
 
-  create_table "locations", force: true do |t|
-    t.integer "trip_id"
-    t.integer "city_id"
-  end
-
-  add_index "locations", ["city_id"], name: "index_locations_on_city_id"
-  add_index "locations", ["trip_id"], name: "index_locations_on_trip_id"
-
   create_table "packs", force: true do |t|
     t.integer "item_id"
     t.integer "trip_id"

@@ -16,5 +16,5 @@
     <%= form.collection_select :season_id, Season.order(:name), :id, :name, {},{class: "form-control"} %>
   </div>
   <%= form.button 'Create Trip', class: "btn btn-success" %>
-  <%= link_to "New Destination", new_city_path, class: 'btn btn-sm btn-success' %>
+  <%= link_to "New Destination", new_city_path, class: 'btn btn-sm btn-primary' %>
 <% end %>
