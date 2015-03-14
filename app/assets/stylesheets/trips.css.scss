@@ -21,34 +21,13 @@ h1.title {
 h2 {
   font-size: 36px;
   font-family: 'Indie Flower', cursive;
+  color: #B22222;
 }
 h3.title {
   font-size: 32px;
   font-family: 'Homemade Apple', cursive;
   color:#663399;
 }
-.rating {
-  font-size: 0.4em;
-  text-transform: uppercase;
-  border: 1px solid #ccc;
-  padding: 4px;
-  vertical-align: middle;
-}
-.summary h2, .actors h2 {
+.packlist h2 {
   margin-top: 0;
-}
-.actors li {
-  line-height: 24px;
-}
-.review {
-  margin-bottom: 30px;
-}
-.thumbnail {
-  height: 510px;
-  a > img {
-    height: 317px;
-  }
-}
-img.poster {
-  width: 240px;
 }
